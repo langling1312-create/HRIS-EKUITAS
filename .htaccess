@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Buka domain langsung (root) -> selalu arahkan ke front controller
+# supaya landing page tampil, bukan 404.
+RewriteRule ^$ public/index.php [L]
+
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ public/$1 [L,QSA]
